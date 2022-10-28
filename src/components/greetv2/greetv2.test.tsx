@@ -9,7 +9,7 @@ import Greetv2 from './greetv2.component';
 describe('GreetV2', () => {
 	it('should render correctly', () => {
 		render(<Greetv2 />);
-		const textElememt = screen.getByText(/hello/i);
+		const textElememt = screen.getByText(/hello\sguest/i);
 		expect(textElememt).toBeInTheDocument();
 	});
 
