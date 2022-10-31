@@ -1,6 +1,8 @@
 const Application = () => {
 	return (
 		<div>
+			<h1>Job application form</h1>
+			<h2>Section heading</h2>
 			<form>
 				<div>
 					<label htmlFor='fullname'>Full name</label>
@@ -10,6 +12,10 @@ const Application = () => {
 						name='fullname'
 						placeholder='Ex: John Doe'
 					/>
+				</div>
+				<div>
+					<label htmlFor='bio'>Bio</label>
+					<textarea name='bio' id='bio' />
 				</div>
 				<div>
 					<label htmlFor='joblocation'>Job location</label>
