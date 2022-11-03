@@ -3,7 +3,7 @@ import { SkillsProps } from './skills.types';
 const Skills = ({ skills }: SkillsProps) => {
 	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 	useEffect(() => {
-		setTimeout(() => setIsLoggedIn(true), 500);
+		setTimeout(() => setIsLoggedIn(true), 1001);
 	}, []);
 	return (
 		<>
