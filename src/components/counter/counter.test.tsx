@@ -64,4 +64,21 @@ describe('Counter', () => {
 		});
 		expect(counterElement).toHaveTextContent('10');
 	});
+	test('should focus the elements in right order', async () => {
+		user.setup();
+		render(<Counter />);
+		const incrementButton = screen.getByRole('button', {
+			name: 'Increment',
+		});
+		const amountInput = screen.getByRole('spinbutton');
+		const setAmountButton = screen.getByRole('button', {
+			name: 'Set amount',
+		});
+		await user.tab();
+		expect(incrementButton).toHaveFocus();
+		await user.tab();
+		expect(amountInput).toHaveFocus();
+		await user.tab();
+		expect(setAmountButton).toHaveFocus();
+	});
 });
