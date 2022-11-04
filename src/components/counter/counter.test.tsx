@@ -13,6 +13,10 @@ describe('Counter', () => {
 			name: 'Increment',
 		});
 		expect(incrementButton).toBeInTheDocument();
+		const setAmountButton = screen.getByRole('button', {
+			name: 'Set amount',
+		});
+		expect(setAmountButton).toBeInTheDocument();
 	});
 	test('counter should render 0 initially', () => {
 		render(<Counter />);
@@ -44,5 +48,20 @@ describe('Counter', () => {
 			level: 1,
 		});
 		expect(counterElement).toHaveTextContent('2');
+	});
+	test('counter should render 10 after clicking the set button', async () => {
+		user.setup();
+		render(<Counter />);
+		const amountInput = screen.getByRole('spinbutton');
+		await user.type(amountInput, '10');
+		expect(amountInput).toHaveValue(10);
+		const setAmountButton = screen.getByRole('button', {
+			name: 'Set amount',
+		});
+		await user.click(setAmountButton);
+		const counterElement = screen.getByRole('heading', {
+			level: 1,
+		});
+		expect(counterElement).toHaveTextContent('10');
 	});
 });
